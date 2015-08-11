@@ -1,0 +1,39 @@
+#outer-wrapper {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 500px;
+  height: 350px;
+  background-color: #dfdfdf;
+}
+
+.chart-outer-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-inner-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.svg-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Chart y-axis */
+.d3-yaxis-group path, .d3-yaxis-group line,
+  .d3-xaxis-group path, .d3-xaxis-group line {
+  fill: none;
+  stroke: #8b8b8b;
+  stroke-width: .5px;
+}
+.d3-yaxis-group text, .d3-xaxis-group text {
+  font-size: 14px;
+  fill: #8b8b8b;
+}
+
+.d3-bar-rect {
+  fill: #998888;
+}
