@@ -12,9 +12,8 @@ export default class D3xAxis extends React.Component {
   static get defaultProps() {
     return {
       duration: 500,
-      scale: d3.scale.linear(),
-      range: [0,100],
-      domain:[0,50],
+      height: 100,
+      xscale: d3.scale.linear()
     };
   }
 
@@ -40,11 +39,11 @@ export default class D3xAxis extends React.Component {
 
     // Domain and chart type
     // let domainArray = [0,60];
-    let chartXScale = d3.scale.linear();
-    chartXScale
-       .range([0,w])
-       .domain(domainArray)
-       ;
+    let chartXScale = this.props.xscale;
+    // chartXScale
+    //     .range([0,w])
+    //     .domain(domainArray)
+    //    ;
     let xAxis = d3.svg.axis()
       .scale(chartXScale)
       .orient("bottom")
@@ -53,8 +52,8 @@ export default class D3xAxis extends React.Component {
       .tickSize(5)
       ;
     xaConfig.axis = xAxis;
-    xaConfig.duration = 500;
-    xaConfig.height = h;
+    xaConfig.duration = this.props.duration;
+    xaConfig.height = this.props.height;
     return xaConfig;
   }
 
@@ -92,6 +91,8 @@ export default class D3xAxis extends React.Component {
 
   // RENDER
   render() {
+
+    console.log(this.props);
 
     // Axis group (during testing, inside a hard-coded hierarchy)
     return (
