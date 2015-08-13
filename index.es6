@@ -8,6 +8,7 @@ export default class D3xAxis extends React.Component {
     return {
       test: React.PropTypes.string,
       config: React.PropTypes.object,
+      axis: React.PropTypes.func,
     };
   }
 
@@ -45,18 +46,18 @@ export default class D3xAxis extends React.Component {
     const orient = config.orient;
     this.props.axis
       .scale(xScale)
-      .orient(this.props.config.orient)
+      .orient(orient)
       .tickPadding(5)
       .ticks(5)
       .tickSize(5);
   }
 
   getAxisGroupTransformString() {
-    let h = 0;
-    if (this.props.config.orient === "bottom") {
-      h = this.props.config.bounds.height;
+    let height = 0;
+    if (this.props.config.orient === 'bottom') {
+      height = this.props.config.bounds.height;
     }
-    return "translate(0," + h + ")";
+    return 'translate(0,' + height + ')';
   }
 
   // UPDATE X-AXIS
@@ -71,7 +72,7 @@ export default class D3xAxis extends React.Component {
     // the orientation (top/bottom), which flips the ticks and strings...
     axisG
       .transition().duration(duration)
-      .attr("transform",transform)
+      .attr('transform', transform)
         .transition().delay(duration).duration(duration)
         .call(this.props.axis)
         ;
