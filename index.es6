@@ -26,6 +26,10 @@ export default class D3xAxis extends React.Component {
     };
   }
 
+  componentWillMount() {
+    console.log(this.props);
+  }
+
   // COMPONENT DID MOUNT
   componentDidMount() {
     this.setXAxisConfig();
@@ -42,7 +46,7 @@ export default class D3xAxis extends React.Component {
   //
   setXAxisConfig() {
     const config = this.props.config;
-    const xScale = config.xscale;
+    const xScale = config.scale;
     const orient = config.orient;
     this.props.axis
       .scale(xScale)
@@ -63,6 +67,7 @@ export default class D3xAxis extends React.Component {
   // UPDATE X-AXIS
   // Called directly on the DOM to update the axis
   updateXAxis() {
+
     const axisG = d3.select('.d3-xaxis-group');
     const duration = this.props.config.duration;
     const transform = this.getAxisGroupTransformString();
@@ -86,6 +91,10 @@ export default class D3xAxis extends React.Component {
 
   // RENDER
   render() {
+
+    console.log("Arriving in x-axis...");
+    console.log(this.props);
+
     // NB: no transform on initial display
     // Axis group
     return (
