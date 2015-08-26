@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import D3 from 'd3';
 import React from 'react';
 
 export default class D3xAxis extends React.Component {
@@ -15,7 +15,7 @@ export default class D3xAxis extends React.Component {
   // DEFAULT PROPS
   static get defaultProps() {
     return {
-      axis: d3.svg.axis(),
+      axis: D3.svg.axis(),
     };
   }
 
@@ -26,9 +26,6 @@ export default class D3xAxis extends React.Component {
     };
   }
 
-  componentWillMount() {
-    console.log(this.props);
-  }
 
   // COMPONENT DID MOUNT
   componentDidMount() {
@@ -68,7 +65,7 @@ export default class D3xAxis extends React.Component {
   // Called directly on the DOM to update the axis
   updateXAxis() {
 
-    const axisG = d3.select('.d3-xaxis-group');
+    const axisG = D3.select('.d3-xaxis-group');
     const duration = this.props.config.duration;
     const transform = this.getAxisGroupTransformString();
     // I'm trying to chain the transitions if the axis moves
@@ -91,11 +88,6 @@ export default class D3xAxis extends React.Component {
 
   // RENDER
   render() {
-
-    console.log("Arriving in x-axis...");
-    console.log(this.props);
-
-    // NB: no transform on initial display
     // Axis group
     return (
       <g className="d3-xaxis-group" ref="axisGroup"/>
