@@ -4,9 +4,14 @@
   "description": "D3 x-axis component",
   "author": "The Economist (http://economist.com)",
   "license": "ISC",
-  "repository": "git://github.com/the-economist-editorial/component-d3-xaxis",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/the-economist-editorial/component-d3-xaxis"
+  },
   "homepage": "http://github.com/the-economist-editorial/component-d3-xaxis",
-  "bugs": "http://github.com/the-economist-editorial/component-d3-xaxis/issues",
+  "bugs": {
+    "url": "http://github.com/the-economist-editorial/component-d3-xaxis/issues"
+  },
   "main": "index.js",
   "files": [
     "*.js",
@@ -82,5 +87,8 @@
   },
   "pre-commit": [
     "lint"
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  }
 }
