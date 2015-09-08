@@ -64,7 +64,6 @@ export default class D3xAxis extends React.Component {
   // UPDATE X-AXIS
   // Called directly on the DOM to update the axis
   updateXAxis() {
-
     const axisG = D3.select('.d3-xaxis-group');
     const duration = this.props.config.duration;
     const transform = this.getAxisGroupTransformString();
