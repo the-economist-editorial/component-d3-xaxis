@@ -73,9 +73,10 @@ export default class D3xAxis extends React.Component {
     // the orientation (top/bottom), which flips the ticks and strings...
     axisG
       .transition().duration(duration)
-      .attr('transform', transform)
-        .transition().delay(duration).duration(duration)
-        .call(this.props.axis)
+      .call(this.props.axis)
+        // I did have delay(duration)...
+        .transition().duration(duration)
+        .attr('transform', transform)
         ;
     // Failed attempt at separating re-orientation from move...
     // this.props.axis.orient(this.props.config.orient);
